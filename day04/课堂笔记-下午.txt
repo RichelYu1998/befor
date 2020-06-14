@@ -1,0 +1,217 @@
+1、循环结构：在程序的代码中，反复执行一段代码，这样结构循环
+1）for （用的最多）
+		//经典for循环，需求：打印0到9
+		//在for循环时，习惯声明基本类型变量，整型；变量名称：i，j，k，m，n
+		//强调！循环体内必须有值能改变判断条件，终有结束时候
+		for(
+				int i=0; 		//这句叫初始化，声明变量i，设置它的起始值为0，只执行一次
+				i<10; 			//这句判断条件，条件成立true，去执行for循环体内的代码。如果条件不成立false，结束for循环
+				i++ 				//这句改变判断条件，+1
+		) {
+			System.out.println(i);
+		}
+
+
+		for(
+				int i=0; 		//第一句
+				i<5; 				//第二句
+				i++ 				//第四句
+		) {
+			System.out.print(i);	//第三句
+		}
+
+
+
+		//需求：打印1到10
+		for(int i=0; i<10; ) {
+			i++;
+			System.out.println(i);
+		}
+
+		//需求：打印9到0
+		for(int i=9; i>=0; i--) {
+			System.out.println(i);
+		}
+		System.out.println("for循环结束");
+
+	双层for循环:
+package cn.tedu.test;
+
+public class TestFor {
+	public static void main(String[] args) {
+
+		//for可以嵌套，不能交叉
+		for(int j=0; j<5; j++) {			//外层循环
+			System.out.println("行数："+j);	//换行
+			for(int i=0; i<10; i++) {		//内层循环
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+2）while
+package cn.tedu.test;
+
+public class TestWhile {
+	public static void main(String[] args) {
+//		for(int i=0; i<10; i++) {
+//			System.out.println(i);
+//		}
+		
+		//while循环
+		int i=0;		//初始化语句
+		while( i<10 ) {		//如果条件true，执行while循环体中的代码，如果条件false，结束while循环
+			System.out.println(i);
+			i++;			//改变判断条件
+		}
+	}
+}
+
+
+
+3）do-while（非常少见）
+
+package cn.tedu.test;
+
+public class TestWhile {
+	public static void main(String[] args) {
+		//while循环
+		int i = 0;		//初始化语句
+		while( i<0 ) {		//如果条件true，执行while循环体中的代码，如果条件false，结束while循环
+			System.out.println(i);
+			i++;			//改变判断条件
+		}
+		
+		//do循环
+		int j = 0;
+		do {
+			System.out.println(j);
+			j++;
+		}while( j<0 );
+	}
+}
+
+
+while循环和do循环的差异，
+while可能一次都不执行，do最少执行一次，本质区别。
+
+
+4）死循环
+		int i = 0;
+		for(;;) {
+			System.out.println(i++);
+		}
+
+		int i = 0;
+		while( true ) {
+			System.out.println(i++);
+		}
+
+		int i = 0;
+		do{
+			System.out.println(i++);
+		}while(true);
+
+5）退出for循环
+	a. break;
+	b. continue;
+
+package cn.tedu.test;
+
+//经典死循环结构
+public class TestDeadLoop {
+	public static void main(String[] args) {
+		
+		int i = 0;
+		while( true ) {
+			i++;
+			if( i==3 ) {
+				continue;	//进入下一次循环
+			}
+			if( i==10 ) {
+				break;		//跳出while循环
+			}
+			System.out.println(i);
+		}
+	}
+}
+
+continue和break区别？
+continue跳过本次循环，注意：continue后面的代码就不会执行了。
+break跳出当前循环，执行循环后面的内容了。
+
+
+6）冒泡排序（算法）烧脑，自己要演算，死背（经典算法）
+
+排序： 一组乱序数字
+1,10,8	排序，由小到大排序；1,8,10
+
+核心思想：
+假设待排序序列有n个元素，需要经过n次冒泡，
+每一次冒泡过程中依次比较交换相邻的两个元素，
+一次冒泡结束，都会有1个元素到达指定的目标位置。
+
+开发要注意地方：
+arr[]
+1）外层for循环：轮数		for(int i=0; i< arr.length -1; i++){}
+2）内层for循环：比较次数（难点）	for(int j=0; j < arr.length -i -1; j++){}	
+3）如果前面的值大，还要交换数据	怎么交换值？
+				设置一个中间变量t，交换它的值
+
+
+小结：
+1）流程控制：3种，
+顺序结构：代码从上向下顺序执行，所有代码都执行
+分支判断结构：根据判断结果，有些代码执行，有些代码就不执行
+循环结构：反复执行一段代码
+
+2）分支结构：
+	a. if	判断（业务逻辑进行判断）
+		if( flag ){
+	
+		}else if （）{
+			
+		}else{
+
+		}
+
+	b. switch
+		switch( n ）{
+		case 1 :
+			syso
+			break;
+		case 2 :
+			syso
+			break;
+		default :
+			syso
+			break;
+		}
+
+
+	if语句如果某个条件成立，其他的后面代码就不做判断直接结束；
+	switch，条件成立后面的判断都失效，代码直接执行，“乱”，必须配合break
+	switch+break，完全可以使用elseif语句替代
+
+3）循环结构
+	a. for
+	b. while
+	c. do
+	while和do的区别？
+	while可能一次都不执行，do最少执行一次
+
+4）算法：冒泡排序
+	Arrays.sort(arr);	//底层快速排序
+
+
+
+
+
+
+
+
+
+	

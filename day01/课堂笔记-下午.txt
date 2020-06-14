@@ -1,0 +1,194 @@
+1、以后开发时良好习惯
+	遇到问题，下不是下手去写代码
+	先分析，然后拆成很多小的步骤，然后把每个步骤的完成，最终代码就完成
+
+需求：
+创建一个HelloWorld类，打印信息到控制台。
+
+分析：开发步骤：
+1）创建java project		javapro-day01
+2）创建类class，		HelloWorld
+3）创建方法，主方法main	main是java自身规定，死记
+4）调用工具类System.out.print方法	打印内容到控制台
+5）运行 java application
+
+
+2、java代码最终给机器看的。注释给开发人员
+注释有3种
+1）单行注释	//
+2）多行注释	/* **/
+3）java doc注释	/** **/
+
+jar 很多类编译后的集合。
+java编译前源文件，class编译后目标文件，字节码文件
+
+//单行注释，不会执行，内容随便写。真正执行时，注释代码就被删除了
+//package包，本质是什么？文件夹目录，分3层。包的作用可以存放文件到不同包路径中。
+package cn.tedu.hello;		//分号是语句结束
+
+//多行注释
+/*
+ * public 修饰符，4个修饰符，公开的，公有的
+ * class 类，java中最重概念之一，创建类文件
+ * HelloWorld，类名，规则：驼峰规则，多个单词首字母大写。专业写法。开发规范！！！
+ * {} 大括号，成对出现，有开始就必须有结束
+ */
+public class HelloWorld {	//classbody 类体
+	
+	//java doc 多行注释，第一行结尾多*
+	/**
+	 * public 修饰符main方法
+	 * static 静态的
+	 * void 无返回值
+	 * main 主方法，唯一一个，它程序执行入口
+	 * () 参数
+	 * [] 数组，一堆值
+	 * String[] args 字符串数组，变量名称args
+	 */
+	public static void main(String[] args) {
+		/*
+		 * jdk提供工具类 java.lang.System
+		 * out输出
+		 * print打印
+		 * 字符串，用双引号括起来
+		 */
+		System.out.print("Hello World");
+	}
+	
+}
+
+
+4、常见错误
+1）包是必须有的吗？
+The declared package "" does not match the expected package "cn.tedu.hello"
+可以，会被同行耻笑！！去公司被技术总监看到，回家！
+2）语句必须加分号，程序在编译时才能正确解析，否则报错
+程序如果出错，是无法执行的，即使强制执行，结果不对。
+检查错误，解决错误，eclipse开发工具就会提示错误，英文（小个小本本，bug集）
+
+Syntax error on token "hello", ; expected after this token
+Syntax error, insert ";" to complete BlockStatements
+
+3）static 在main函数中必须写吗？
+main函数的要求，必须是静态的，必须用static修饰
+
+4）void是否可以不写？
+不行 Return type for the method is missing
+
+5）main方法是否必须小写？
+java中严格区分大小写
+main和Main，MAIN三个值
+在sql数据库，它不区分大小写
+
+6）public static能否颠倒顺序
+在java语法中public static这几个修饰符，编译器不管它们的顺序！！！！
+
+7）只能有一个，出现两个以上
+Duplicate（重复） method main(String[]) in type HelloWorld
+
+5、快捷方式
+1）main方法快捷方式
+	a. 创建类是选择内容
+	b. eclipse提供自动补全功能（最多）快捷键：ALT+/	main
+2）工具类方法快捷方式
+	a. 自动补全 ALT+/					sys/syso
+
+3）快速复制一段代码，
+	先选中要复制代码，CTRL+ALT+向下箭头，
+		
+
+6）自定义方法
+	//写一个方法，打印方法名
+	//public公用修饰符，void代表没有返回值，print方法名，无参
+	//方法之间关系平齐，不能嵌套
+	public void print() {
+		System.out.println("print method");
+	}
+
+
+package cn.tedu.hello;
+
+public class HelloWorld {
+	//主函数，主方法
+	public static void main(String[] args) {
+		System.err.println("Hello World");
+		System.out.println("Hello World");
+	}
+
+	//写一个方法，打印方法名
+	//public公用修饰符，void代表没有返回值，print方法名，无参
+	//方法之间关系平齐，不能嵌套
+	public void print() {
+		System.out.println("print method");
+	}
+	
+	//需求：两个整数相加1+1=2(x+y=z)，相加结果返回（有两处变化）
+	public int add(int x, int y) {
+		return x+y;
+	}
+}
+
+
+7）方法的调用
+	a. main方法，是由 java.exe 文件调用
+	b. 普通方法，没人调
+
+
+package cn.tedu.hello;
+
+public class HelloWorld {
+	//主函数，主方法
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		
+		//调用自定义方法
+		//1. 创建实例对象
+		HelloWorld helloWorld = new HelloWorld();
+		
+		//2. 通过实例对象调用某个方法
+		helloWorld.print();
+		
+		int z = helloWorld.add(1, 2);		//调用方法，设置参数值，返回值
+		System.out.println("add方法的返回值是：" + z);
+	}
+
+	//写一个方法，打印方法名
+	//public公用修饰符，void代表没有返回值，print方法名，无参
+	//方法之间关系平齐，不能嵌套
+	public void print() {
+		System.out.println("print method");
+	}
+	
+	//需求：两个整数相加1+1=2(x+y=z)，相加结果返回（有两处变化）
+	public int add(int x, int y) {
+		return x+y;
+	}
+}
+
+
+
+8）工具类
+package cn.tedu.hello;
+
+public class MyUtils {
+	//代码缩进tab=2个空格，方法的声明，不代表使用
+	public void use() {
+		System.out.println("我使用了工具类");
+	}
+	
+	public int multi(int a, int b) {
+		return a*b;
+	}
+	
+	public static void main(String[] args) {
+		//1.创建对象
+		MyUtils mu = new MyUtils();
+		
+		//2.调用
+		mu.use();		//方法的调用，使用这个方法
+		int z = mu.multi(10, 20);
+		System.out.println("乘法结果是：" + z);	//字符串连接符+
+	}
+}
+
+

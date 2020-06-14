@@ -1,0 +1,133 @@
+周四自习
+
+1、基本类型、包装类型它有什么特点？	只能存放一个值
+表达生活中的各种数据，交给计算机的。
+
+举例：
+1）表示一个数字
+	int a = 10;
+2）表示一组数字
+	int a1 = 100;
+	int a2 = 200;
+	int a3 = 300;
+
+数组：表示一组数据
+
+方式一：
+		int[] arr = new int[5];		//声明一个空数组，但是有5个元素
+		//初始化值，
+		arr[0] = 10;
+
+
+package cn.tedu.base;
+
+//数组
+public class TestArray {
+	public static void main(String[] args) {
+		//有三个值：100,200,300，用数组如何表达？
+		
+		//标准写法：声明数组
+		int[] arr = {100, 200, 300, 400,500,600};		//基本类型整形数组
+		
+		//? 数组是基本类型还是引用类型？
+		//如果打印值，直接显示它的值，它就是基本类型；如果打印地址，就是引用类型
+		System.out.println(arr);		//[I@659e0bfd	对象地址
+		
+		//访问数组，java中数组下标是从0开始，下标是个数字
+		System.out.println( "第一个元素："+arr[0] );
+		System.out.println( "第二个元素："+arr[1] );
+		
+		//数组的长度-1。		写代码原则，尽量通用，不要写死代码
+		System.out.println( "最后一个元素："+arr[arr.length - 1] );
+		
+		//错误：数组越界，.ArrayIndex（数组的下标）OutOfBounds（超过长度值）Exception
+		System.out.println("数组的长度是：" +arr.length );
+		System.out.println( "最后一个元素："+arr[10] );
+		
+	}
+}
+
+
+package cn.tedu.base;
+
+//二维数组
+public class TestArray2 {
+	public static void main(String[] args) {
+		//二维数组声明，n一维数组的长度，m二维数组的长度
+		int[][] arr2 = new int[3][2];	//3行2列
+		
+		//初始化值
+		arr2[0][0] = 10;		//给第一个元素设置10？
+		arr2[0][1] = 20;		//1行2列
+		arr2[2][1] = 30;
+		
+		//二维数组访问
+		System.out.println( arr2 );
+		System.out.println( arr2[2][1] );
+		
+		//利用数组长度，获取最后一个元素值
+		System.out.println("行数：" + arr2.length );
+		System.out.println("列数：" + arr2[0].length );
+		System.out.println("最后一个元素：" + arr2[ arr2.length-1][ arr2[0].length -1] );
+		
+		//错误：.ArrayIndex（数组的下标）OutOfBounds（超过长度值）Exception
+		System.out.println( arr2[2][10] );
+	}
+}
+
+
+3、基本类型和数组特点？
+	基本类型只能保存一个值
+	数组可以保证一组值，是同一个类型值
+
+
+需求：描述学生信息
+1）学生有编号	int id = 110;
+2）学生有姓名	String name = "tony";
+3）学生年龄	int age = 20;
+
+问题：
+1）基本类型可以表达，但是太多项，麻烦。
+2）数组根本表达不了，上面有两个类型int、String
+
+java世界中，最复杂一个结构，来表示万物，对象！！！！
+对象也要先声明（定义）类，再使用。
+
+类：class
+对象：object
+创建对象才能使用：		class obj = new class();
+		Student student = new Student();
+		Student stu = new Student();
+		
+要求：（良好习惯，但不是强求的）
+对象中的成员变量（属性），都推荐使用包装类型
+
+class Student
+	Integer id;
+	String name;
+	Integer age;
+
+面向对象编程性能不是首要考虑的目标！！
+java比c慢呢？
+多个指标取平衡。
+
+
+作业：
+1）8个基础类型，死背（大小）
+2）对应8个包装类型
+3）一维数组，二维数组（不常用）	代码要简洁易懂
+4）类，对象
+	创建类
+	类的成员变量
+	创建对象
+	设置成员变量初始化值
+	添加toString方法
+	调用
+
+	一气呵成：Course、Student、Teacher。。。。
+5）断点。。。
+
+
+
+
+

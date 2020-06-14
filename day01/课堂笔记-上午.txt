@@ -1,0 +1,211 @@
+老师会给大家两个文档：
+1）超级文档(word)，上课内容都在这里，还比较细致；	预习，复习
+2）课堂笔记(txt)，重要重点内容就会写在笔记中；		复习
+
+预科班和正式班
+1）预科班，在java基础上有一些概念，对开发环境和开发工具有所了解，多练习，熟练操作
+2）根据班上整体情况，快的同学等等慢的同学，慢的同学加快脚步（预习、复习）
+预科班把节奏调整好，培养好的学习习惯
+3）正式班这些技术都会重讲，而且更加细致。
+4）预科班没有视频回放，讲完是没有视频回放，只能看笔记
+
+好的学习习惯：三习，预习，复习，练习。
+强调：java开发语言，软件编程，它是应用的科学。不用非常了解底层原理，就可以玩的转。
+例如：手机，开车
+
+达内java培优：
+1）java培优课程（广度，应用层面，让你了解并应用市场上所有主流技术，它的知识面非常宽，超过企业多年工作人员的技术面，你学完才有竞争力。）
+2）高手班课程（深度，研究jvm虚拟机优化，java底层实现，数据结构，算法，三大框架源码，手写三大框架）有工作经验，文凭非常好，立志进大厂，条件好，阿里
+
+预科班5天：
+1）开发环境：
+	jdk 1.8		java工具包
+	eclipse/idea	IDE集成开发环境
+	找你的中心项目经理，他能更快速给你解决（中午）
+
+2）Java版本变迁
+1991年在SUN公司诞生，最早叫oka语言；
+
+1995年5月23日，由oka更名为Java语言；
+
+1996年1月，第一个JDK-JDK1.0诞生；
+
+1996年4月，10个最主要的操作系统供应商申明将在其产品中嵌入Java技术；
+
+1996年9月，约8.3万个网页应用了Java技术来制作；
+
+1997年2月18日，JDK1.1发布；
+
+1997年4月2日，JavaOne会议召开，参与者逾一万人，创当时全球同类会议纪录；
+
+1997年9月，JavaDeveloperConnection社区成员超过十万；
+
+1998年2月，JDK1.1被下载超过2,000,000次；
+
+1998年12月8日，Java 2企业平台J2EE发布；
+
+1999年6月，SUN公司发布Java三个版本：标准版（J2SE）、企业版（J2EE）和微型版（J2ME）；
+
+2000年5月8日，JDK1.3发布;
+
+2000年5月29日，JDK1.4发布;
+
+2001年6月5日，Nokia宣布到2003年将出售1亿部支持Java的手机;
+
+2001年9月24日，J2EE1.3发布;
+
+2002年2月26日，J2SE1.4发布，此后Java的计算能力有了大幅提升;
+
+2004年9月30日，J2SE1.5发布，成为Java语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE1.5更名为Java SE 5.0;
+
+2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名，以取消其中的数字“2”：J2EE更名为Java EE，J2SE更名为Java SE，J2ME更名为Java ME;
+
+2006年12月，SUN公司发布JRE6.0;
+
+2009年4月20日，甲骨文以74亿美元的价格收购SUN公司，取得java的版权；
+
+2010年11月，由于甲骨文对Java社区的不友善，因此Apache扬言将退出JCP;
+
+2011年7月28日，甲骨文发布Java SE 7;
+
+2014年3月18日，甲骨文发表Java SE 8;
+
+2017年7月，甲骨文发表Java SE 9;
+
+2018年3月21日，甲骨文发表Java SE 10;
+
+2018年9月25日，甲骨文发表Java SE 11;
+
+2019年3月19日，甲骨文发表Java SE 12；
+
+2019年9月17日，Oracle Java SE 13发布；
+
+2020年3月17日，发布Java SE 14产品。
+
+
+3）JDK、JRE、JVM
+企业最喜欢新人能力？对新的技术快速掌握能力
+
+看书，度娘（百度）碎片学习
+https://baike.baidu.com/		百度百科，权威，不会乱写
+
+JDK
+JDK是 Java 语言的软件开发工具包，主要用于移动设备、嵌入式设备上的java应用程序。JDK是整个java开发的核心，它包含了JAVA的运行环境（JVM+Java系统类库）和JAVA工具。
+
+JDK(Java Development Kit)  java开发工具包，以后开发都是在这些工具类基础上。拿来直接使用。对jdk很多类必须非常熟练。在后面每天课程中，把这些内容熟练。（这些东西反复出现）
+
+JRE
+Java运行环境（Java Runtime Environment，简称JRE）是一个软件，由太阳微系统所研发，JRE可以让计算机系统运行Java应用程序（Java Application）。
+JRE的内部有一个Java虚拟机（Java Virtual Machine，JVM）以及一些标准的类别函数库（Class Library）。
+
+JVM
+Java虚拟机（Java Virtual Machine，JVM）
+JVM是Java Virtual Machine（Java虚拟机）的缩写，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。
+引入Java语言虚拟机后，Java语言在不同平台上运行时不需要重新编译。Java语言使用Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言编译程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。
+
+JDK和JRE和JVM什么关系？
+jdk包含jre，jre包含jvm，
+开发者必须使用jdk，否则后面做高大上项目时，它需要工具类可能就在jdk中，所以不能配置jre！！！！
+
+
+JVM跨平台？（java程序可以在windows运行，linux运行）.net（c#微软）它只能在window平台运行，不能在linux平台运行，不能跨平台。
+
+4）配置开发环境
+a）jdk 1.8x（64bit版本，可以官网下载，直接问你中心项目经理要，一路安装，选择jdk/jre（x）））
+	安装时选择安装目录。java对中文和空格支持不好，如果目录中有中文或者空格会乱码，不能正常使用。
+	默认安装路径会有空格，有时就会出现问题！！
+	好的习惯：D:\java\env\jdk1.8		不要放在c盘，重做系统格式化，东西全丢。目录是没有中文和空格
+
+	配置系统环境：（安装配置过程有问题，找本中心项目经理）
+	配置JAVA_HOME
+	配置PATH
+
+	验证：Jdk环境
+	a.到dos窗口；
+	b.敲入命令： java -version		查看java版本，前提是JAVA_HOME配置好
+	
+b）eclipse IDE
+	最新安装方式变化，绿色解压/安装，最新版本的eclipse只有安装版本
+	在线安装
+	没有安装同学，中午一定要安装好。（一路安装）
+
+
+5）配置eclipse环境
+	a. 包视图，package explorer，管理以后程序
+		window/show view/package explorer	选other，
+
+	b. 控制台，console 检查程序是否运行正常，和程序交互，打印一些信息
+		window/show view/console， 选other
+	
+workspace：工作空间（只创建一次）中文设置字符集UTF-8，默认只支持英文，中文乱，参加：1.5.3
+	写的代码，保存磁盘，方便管理，给它一个总的目录。
+	默认：C:\Users\tony\eclipse-workspace 大大不好，重做操作系统会干掉c，我们写的程序都丢了。不是好开发习惯。
+	自己创建工作空间
+	a.先手动创建工作空间目录	D:\java\ws\2004
+
+6）写我们的第一个java程序
+	开发步骤：理清思维，当复杂理不清过程，把它拆分成很多步骤，每个步骤做的事情单一，就方便理清思路！ 逻辑思维能力！
+	1）创建工程 java project
+		File/New/Java project
+		修改名称：项目上右键菜单/refactor/rename
+
+	2）具体的代码类 class，创建HelloWorld.java
+		规范：代码必须放在项目（工程）/src目录下
+		类必须放在包下，
+		cn.tedu.hello
+		包的规范：域名倒写.项目名称，中间都是以.作为分隔符
+		包名可以大写可以小写，推荐全小写（良好习惯）
+
+		类名规则：HelloWorld，Hello
+		每个单词首字母大写，要符合这个习惯，不要乱写
+		大家都按一定规则，将来写的代码都尽量一致
+
+package cn.tedu.hello;
+
+public class HelloWorld {
+
+}
+
+
+	3）运行，写在main函数中（规范，死记）
+package cn.tedu.hello;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		//照着老师的写，实际开发叫开卷考试
+	}
+}
+
+
+	4）结构，打印（系统函数、方法jdk工具包）Hello World！字符串信息在控制台上console
+
+package cn.tedu.hello;
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		System.out.print("Hello World!");
+	}
+}
+
+	5）运行（执行）
+		空白处，鼠标右键，选择Run As菜单，Java application（app）
+
+养成好的习惯：
+	起名时，见名知意，别人维护代码（读程）
+
+7）常见对象
+	java project 创建java工程，Maven工程，SpringBoot工程	
+	package 包，类就是放在不同包下
+	class 类，代码都要写在类文件中，将来才能运行
+	interface 接口，特殊类
+	enum 枚举，特殊数据结构（用的很少）
+	Annotation 注解，重要，现在主流开发方式注解开发，注解，三大框架，微服务
+	folder 目录，文件夹
+	file 文件，html文件，java文件，class文件
+
+
+
+
+	
+
+

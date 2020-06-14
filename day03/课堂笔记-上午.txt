@@ -1,0 +1,167 @@
+知识回顾：
+1）关键字：java中约定好的名称，这些名称是定死，不会变化。不允许开发者自己使用
+
+静态方法 static，非静态方法 non-static
+
+2）运算符
+数学功底，只需要会+-*/%，足够日常开发（初级程序员）
+数据分析工程师，算法工程师，大数据工程师，人工智能：概率论、高数、离散
+
+1==1 	true
+1==2	false
+
+1!=1	false
+1!=2	true
+
+1+1	2	加号
+1+"1"	11	连接符
+
+package cn.tedu.base;
+
+public class TestArea {
+	public static void main(String[] args) {
+		//+=
+		int a = 10;
+		int b = 20;
+		
+		a += 5;		// a = a+5
+		System.out.println(a);
+
+		b = b +5;
+		System.out.println(b);
+	}
+}
+
+1、什么是数据结构？
+
+什么叫做程序？
+程序=算法+数据结构（老了）
+新的定义：当今程序=算法+数据结构+架构（三大框架、微服务框架、互联网架构技术）
+
+架构：
+1）springmvc 表现层框架
+2）spring 业务层框架
+3）mybatis 持久层框架
+4）微服务框架：阿里dubbo、SpringCloud怎么用？
+5）互联网架构技术：Nginx（c）+Redis（c）+MyCat (java)+RabbitMQ（elang）+Lucene+Solr（java）/ES+docker（go）
+
+京淘电商，项目要练10遍！！！
+
+当前你的学习目标：应用型工程师，拿别人“积木”堆建自己的系统！
+Nginx没有代码，配置文件，10行配置！
+
+
+什么是数据结构？
+程序执行脱离不了数据，数据进行处理，处理结果要保存。内存、磁盘中。
+怎么放数据更加高效呢？选择合适“容器”
+
+数据都要放在内存中，内存有大小4g/8g/16g/32g....，磁盘 1t
+两个维度：
+1）所占用存储空间，要选择占用小的
+2）占用空间小，性能反而高
+
+？根据需要时，有什么“容器”可以选择呢？
+java提供很多“容器”，每个大小不同，开发者根据自己需求，去选择适当大小。
+
+
+计算机底层：两个值0和1，bit比特，位
+
+2、java数据结构分为两类：
+1）基本类型：8种，开发时，优先选用最小存储空间，占的内存少，性能高！
+
+	byte	字节		8bit	1个字节	-2^7 ~ 2^7	-128~127（中间有0）		
+	short	短整型			2个字节	-2^15 ~ 2^15
+	int	整型（默认）		4个字节	-2^31 ~ 2^31
+	long	长整型			8个字节	-2^63 ~ 2^63
+	
+	float	单精度浮点数		4个字节	-2^31 ~ 2^31
+	double	双精度浮点数（默认）	8个字节	-2^63 ~ 2^63
+
+	char	字符型，用单引号扩起来	2个字节
+	boolean	布尔类型			1个字节	true/false
+
+	存5选择byte类型，存128选择short类型，存1.2使用float。
+	java中默认，如果是一个数字，默认整型int类型，如果写1.2，默认double类型。
+
+2）引用类型：
+	String	字符串，用双引号扩起来
+	Object 类的实例对象
+
+	引用类型的默认值：null
+
+
+package cn.tedu.base;
+
+//7种基本类型默认值，
+public class TestBaseType {
+	//成员变量，在类的声明的下面
+	byte b;			//字节类型的默认值0
+	short s;
+	int i;
+	long x;
+	
+	float f;
+	double d;
+	
+	boolean bn;
+	String str; 
+	
+	public void print() {
+		System.out.println("byte 字节类型默认值：" + b);
+		System.out.println("short 短整型默认值：" + s);
+		System.out.println("int 整型默认值：" + i);
+		System.out.println("long 长整型默认值：" + x);
+
+		System.out.println();   //打印加空行
+		
+		System.out.println("float 单精度浮点数默认值：" + f);
+		System.out.println("double 双精度浮点数默认值：" + d);
+		
+		System.out.println();
+		
+		System.out.println("boolean 布尔类型的默认值：" + bn);
+		
+		System.out.println("String 字符串默认的值：" + str );
+	}
+
+	public static void main(String[] args) {
+		TestBaseType tbt = new TestBaseType();
+		tbt.print();
+	}
+}
+
+3、基本类型变量不符合java的面向对象概念，
+	c语言面向过程语言，它不是面向对象语言。
+	在java叫做面向对象语言，万物皆对象。
+	在java中除了基本类型都是对象类型。
+
+	把基本类型转换成对象类型。（翻译）
+
+	包装类型：8个
+	byte	Byte
+	short	Short
+	int	Integer
+	long	Long
+
+	float	Float
+	double	Double
+
+	char	Character
+	boolean	Boolean
+
+好处：包装类型，java默认提供非常多的方法，MAX_VALUE和MIN_VALUE
+
+Byte的范围：-128~127
+Short的范围：-32768~32767
+Integer的范围：-2147483648~2147483647
+Long的范围：-9223372036854775808~9223372036854775807
+
+Float的范围：1.4E-45~3.4028235E38
+Double的范围：4.9E-324~1.7976931348623157E308
+
+基本类型和包装类型的差异？
+基本类型全小写，包装类型首字母大写，两个特殊存在：Integer、Character
+基本类型没有额外方法，它占用空间小；
+包装类型有很多额外方法MAX_VALUE，基本类型是没有这些方法，它占用空间就大
+包装类型都有引用类型，引用类型初始值null
+

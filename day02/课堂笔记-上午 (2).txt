@@ -1,0 +1,133 @@
+知识回顾：
+1）java的历史
+	91年诞生oak，95改名java，j2ee框架（j2se-jdk、j2ee-javaweb-ssm-微服务、j2me嵌入式-智能家居）
+	企业日常开发小型系统，管理系统mis，CRM销售管理，ERP人财物管理。。。
+	阿里、京东大型超大型网站
+
+	python 91年
+
+2）JDK、JRE、JVM的区别？
+	JDK java开发者扩展工具包，必须去逐渐熟悉应用这些工具 System.out.println("");
+	JRE java运行环境，JVM+基本工具包。运行java程序最小的单元。
+	JVM 虚拟机，在操作系统之上又包装一层。讲我们写的代码给JVM，JVM处理后给操作系统。最终操作系统进行执行。屏蔽了不同操作系统和硬件差异。x86。实现跨平台！！
+	缺点：多加一层，性能就损失！
+	c比java快。如果做银行交易系统底层，通讯用c；但是如果做大型软件系统，系统稳定性，或者健壮性，java第一。java底层c，如果某个模块性能不行，用c重写！
+	python它的性能还不如java。
+
+	作为一个java开发人员，配置环境：JDK！！！！
+
+3）注释：3种方式，java代码是最终给JVM执行的，注释是给开发者看，团队
+	单行注释：//
+	多行注释：/* ****       */
+	java doc 注释 /** ***** */
+	原则：初学者，给每一行代码写注释。真正开发，重点语句，逻辑比较绕语句。
+
+	编码高手怎么修炼？
+	1）照着别人写代码（1~5年）
+	2）思考，什么动？什么静？什么关联？
+	3）给每一行写注释
+	4）把注释删除，还能讲出每一句意思
+	5）全部代码自己来独立写出来
+	如果5个月按此方法来坚持，那学完就相当于2到3年工作经验
+
+4）创建一个类的过程
+	1）创建java project 工程（项目）
+	2）创建class类 HelloWorld.java
+	3）执行必须有程序入口，java规定程序入口main函数。
+	4）调用工具类 java.lang.System.out.println("");  导包（System是放在哪个包中）
+		如果工具类是属于jdk的基础类这些jar包，无需导包。直接使用。编译器会自动去这些jar包中搜寻。
+	5）运行，必须有main函数才能运行
+
+5）方法
+	方法必须写在类体中，类的大括号中
+	类中可以有多个方法
+	结构：修饰符 返回值类型 方法名（参数。。。）{方法体}
+	public 、private、protected、default
+	void无返回值，如果有返回值，写的是返回值类型
+	方法名起名规则：驼峰规则： use、print、toUpperCase
+	参数：参数类型 参数名称，习惯小写userName，password，x，y，a，b
+	方法声明是没有顺序，前后都可以，但是不能交叉，方法自己独立一块	
+
+	分为定义（声明方法）和方法的调用
+	定义：
+	调用：
+	非静态的方法，必须先创建对象，通过对象才可以调用
+MyUtils mu = new MyUtils();
+mu.use();
+	静态的方法，不用创建对象，也可以直接调用
+	MyUtils.print();
+
+	原则：尽量不要使用静态方法，静态内容会在类初始化就放入内存，而且一直占着。
+	非静态，它是当遇到new关键字才被加载到内存中，如果这个方法所在类不在使用，还会从内存中删除。
+	自己写的类，就不要写静态的方法。
+
+
+1、java代码是怎么执行的？
+1）什么时候eclipse中的java文件就变成了class文件？
+	java文件在哪呢？ 在工程目录下的src，类的对应包路径cn/tedu/hello/HelloWorld.java
+	class文件在哪呢？在工程目录下，平齐于src的目录bin，对应路径cn/tedu/hello/HelloWorld.class
+
+	.java文件是给开发者看的，.class文件是给JVM用的。
+
+	eclipse集成开发工具，方便我们编程，无需开发者自己去编译，而在java文件保存时自动生成class文件！
+
+2）RunAs运行时，是依赖java文件，还是class文件？
+	答案：运行时调用class字节码文件，如果这个文件不存在，它报错误不明显！！！
+
+错误: 找不到或无法加载主类 cn.tedu.hello.HelloWorld
+
+	D:\java\env\jdk1.8\bin\java.exe	运行java程序
+	D:\java\env\jdk1.8\bin\javac.exe	compile 编译Java程序
+
+
+2、关键字，java中它已经赋予它固定含义或者用法，我们作为开发者不能去使用！
+	java版本不断升级，50+
+	扩展：java能用吗？
+	初学者：抄别人代码，
+
+3、标识符：关键字是不能我们去使用的，我们自定义的名称就称为标识符
+	英文字母、下划线、后面可以跟数字。。。。。。规则
+
+4、变量和常量
+	变量：变化的值
+	常量：不变的值
+
+package cn.tedu.hello;
+
+//测试类
+public class TestVar {
+	public static void main(String[] args) {
+		//定义变量
+		int x = 0;		//声明一个类型为int整形的变量，变量名y，初始化值0
+		int y = 10;
+		
+		System.out.println("x的值是：" + x );//+不是数学加号，字符串连接符
+		
+		//java在一个方法内不能声明重名变量，在一个方法中变量：局部变量
+		//int x = 2;		//Duplicate local variable x
+		
+		x = 2;			//再次赋值，可以非常多的次数
+		y = 20;
+		System.out.println("x的值是：" + x );
+		
+		String s = "abc";
+		System.out.println(s);
+		
+		s = "123";		//不是数字，用双引号括起来在java中叫做字符串
+		System.out.println(s);
+		
+		//定义常量，第一次赋值称为初始化值
+		final int z = 10;		//final修饰之后，这个值只能初始化一次，就不能再次设置值！
+		System.out.println(z);
+		//z = 20;	//The final local variable z cannot be assigned. It must be blank and not using a compound assignment
+		System.out.println(z);
+		
+		//习惯上常量使用全大写
+		final String SYSTEM_NAME = "达内java培优核心项目-京淘电商";
+		//SYSTEM_NAME = "abc";    常量不允许再次设置值
+		System.out.println(SYSTEM_NAME);
+	}
+}
+
+
+

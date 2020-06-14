@@ -1,0 +1,238 @@
+1、变量练习
+	删除一行的快捷键 Ctrl+D
+
+package cn.tedu.hello;
+
+public class TestVar2 {
+
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 20;
+		int c = 30;
+		
+		a = a*2;
+		b = b*3;
+		c = c*4;
+		
+		//如果+加号两边都是数字，+叫做累加
+		System.out.println(a+b+c);	//20+60+120=200
+		//特殊点：字符串，如果+加号两边有字符串，不是累加，而是字符串拼接（拼串）
+		System.out.println("a="+a+", b="+b+", c="+c);	//？200
+	}
+
+}
+
+
+2、运算符
+1）+数字，累加
+2）+有字符串，连接符，拼串
+3）* 数字，乘法
+
+学计算机，软件，需要数学功底非常好？
+数学功底一般足够日常编程。日常+-*/整除%取余
+财务系统，缴费系统，保险系统，电商算优惠券等等，客户会提供好算式，团队中高级程序员、系统分析师去解决！
+
+数据分析岗位、数据挖掘岗位、大数据、人工智能玩精，遇到算法，数学。
+极高要求：概率论、高数、离散
+
+a）取余，实际开发使用非常多，%
+a % b = ？
+
+package cn.tedu.hello;
+
+public class TestNumber {
+	public static void main(String[] args) {
+		//需求：判断奇数还是偶数？
+		//分析：数字n对2进行取余，如果余数0，偶数；如果余数1，奇数。
+		int n = 9;
+		int r = n % 2;		//n对2取余
+		System.out.println(n+"%2 结果是："+r);
+		
+		//分支判断语句
+		if(r == 1) {		//r等不等于1，是true，否false
+			System.out.println("奇数："+n);		//true就执行这句话
+		}else {
+			System.out.println("偶数："+n);		//false就执行这句话
+		}
+	}
+}
+
+
+b）java中特殊，有些语言是没有这个内容的，自加、自减
+自加++
+package cn.tedu.hello;
+
+public class TestSelf {
+	public static void main(String[] args) {
+		//自加
+		int a = 0;	//java习惯从0开始
+		int b = 0;
+		
+		a = a +1;
+		a = a +1;
+		System.out.println("a="+a);
+		
+		b++;	//简写，等价于  b = b+1
+		b++;
+		System.out.println("b="+b);
+	}
+}
+
+
+package cn.tedu.hello;
+
+public class TestSelf {
+	public static void main(String[] args) {
+		//自减
+		int a = 10;	//java习惯从0开始
+		int b = 10;
+		
+		a = a -1;
+		b--;
+		
+		System.out.println("a="+a);
+		System.out.println("b="+b);
+	}
+}
+
+
+package cn.tedu.hello;
+
+public class TestSelf {
+	public static void main(String[] args) {
+		int count = 10;
+		//System.out.println( ++count );
+		
+		//等价于
+		count = count +1;
+		System.out.println( count );
+	}
+	
+	public static void main1(String[] args) {
+		int count = 10;
+		//System.out.println( count++ );		//简写
+		
+		//等价的做法，count++，先处理count，然后在处理+1
+		//编译后语句类似下面的结构
+		System.out.println(count);
+		count = count +1;
+	}
+}
+
+自减--
+
+package cn.tedu.hello;
+
+public class TestSelf {
+	public static void main(String[] args) {
+		int count = 20;
+		
+		System.out.println( count++ );		//先打印后加，打印：10，count=11
+		System.out.println( ++count );		//先加后打印，12，打印：12，count=12
+		
+		System.out.println( count-- );		//先打印后减，打印：12, 11，count=11
+		System.out.println( --count );		//先减后打印，10，打印：10
+	}
+}
+
+
+c）三元运算符（三元也叫三目，三个变量）
+z = x + y；	x和y，二元
+z = (x>y) ? x : y	语法，一元=(x>y)，二元x，三元y
+		意思：一元条件表达式，结果布尔类型，结果只会是两个：true(x>y)/false(x<=y)
+		如果一元结果是true，就把冒号前面值返回给z，如果结果是false，把冒号后面值返回给z
+
+
+package cn.tedu.hello;
+
+//利用三目表达式来实现求最大值
+public class TestMax {
+	public static void main(String[] args) {
+		int x = 100;
+		int y = 20;
+		
+		int max = (x>y) ? x : y;		//形式写死的，必须都是英文
+		System.out.println("最大值是：" + max);
+	}
+}
+
+3、调试 debug，
+开发者：a. 开会，b.学习（内部培训），c.开发，d.调试bug，e.出差
+花的最多时间：调试。开发者笑话：开发程序人就是制造bug的人！！！
+
+IDE非常成熟，它有一套调试方法。
+调试：跟踪变量值，看是否和我们预期一致
+
+单步调试，程序执行一步，就看一下变量的值。
+断点：程序执行到断点时，就断开了，然后就可以观察变量的当前值	
+1）设置断点：在行号前面双击，产生一个点，这个点就代表断点，不想要，再次双击就取消
+2）启用断点，运行时不能使用RunAs，必须使用DebugAs
+	进入窗口方式，有很多新窗口，
+	现象：程序就停止，断点这一行，绿色条
+3）观察：变量count值，
+4）单步执行：F6快捷键，向下执行一步
+
+调试快捷键：
+1）F6单步调试，每次运行一句代码
+2）F8达到下一个断点，没有断点，直接结束
+3）F5进入方法执行
+4）F11直接运行完成
+
+断点设置，是在要观察变量下一行
+如果F6直接执行完方法的调用，如果要进入到方法去执行？ F5
+F5是进入方法里，F6只执行方法，不会进去
+
+
+小结：
+1）java执行过程
+	a.在eclipse开发工具中写源代码文件	HelloWorld.java（src/package）
+	b.在文件保存时，eclipse自动调用配置jdk中的javac.exe文件，进行编译compile，		HelloWorld.class(bin/package)
+	c. 执行时，调用java.exe文件，把class文件传到jvm中，jvm边解释边执行，翻译成操作系统底层代码（汇编语言，机器指令去执行）
+	
+2）java文件和class文件区别？
+	a. java源文件，class目标文件，字节码文件
+	b. java文件纯文本文件，记事本直接打开；txt；class二进制文件，无法用文本编辑工具直接开
+	c. java源文件给开发者看；class字节码文件给jvm用的。
+
+3）关键字和标识符
+	关键字 50+，在开发中不能使用
+	习惯字也不要使用。java 很容易发生隐晦错误
+	标识符，自定义变量名称，注意不要用数字开头
+
+4）变量和常量
+	变量：变化量，可以反复设置，多少次都可以
+	常量：只允许初始化一次，之后不允许再次设置它的值！！！！。java关键字修饰：final；习惯：常量全大写
+	局部变量：在方法体内，设置变量就叫局部变量，在一个方法体内，不允许重复声明
+
+	max{
+		int i = 10;
+		int j = 20;
+	}
+
+5）运算符：
+	取余
+	自加、自减（i++,i--，++a, --a）
+	三目（三元）		(a>b) ? x : y	条件表达式true/false，条件为true，返回x值，条件为false，返回y值
+
+6）调试
+	开发中花时间最多地方就在于调试，
+	编译错误，eclipse直接提示；
+	隐性错误，变量值和我们规划不同，a=10，a=11。跟踪调试！！！
+
+	快捷键：
+	1）设置断点，双击，再次双击就取消
+	F6 单步执行，每次执行一行代码
+	F8 跳过中间代码，执行到下一个断点，如果后面没有断点，直接执行完成
+	F5 进入到方法中执行，
+
+作业：
+1）把每个关键字写10遍，死记。看到单词知道意思 try异常视图，throw抛出异常，throws接收异常
+2）调试，
+
+
+
+
+
+
+
+

@@ -1,0 +1,289 @@
+知识回顾：
+1）数据结构：
+	传统程序开发，	程序 = 数据结构 + 算法
+	当今程序开发，	程序 = 数据结构 + 算法 + 架构（框架）****
+
+	基本类型时，它占用空间小，性能高，所以在编程时优先选用基本类型。
+	包装类型，本身是引用类型，它有额外方法hashcode, toString， max，min。。。占空间，低一些。
+	在开发中，对象：Student。成员变量使用包装类型！
+	
+	原则： 原则不一定去遵守，但是推荐使用，要根据业务实际场景。做个大的指导原则
+	a. 在方法体内，声明局部变量，局部变量优先使用基本类型
+	b. 在对象中，声明成员变量，成员变量优先使用包装类型
+
+	看人家的代码，人家怎么声明，你就怎么声明。
+
+2）把生活中的数据，让计算机能进行处理
+	java提供8个基本类型：（键盘记忆）
+Byte		1) byte 字节		1个字节		2^8   -128~127，包括0
+Short		2) short 短整型		2个字节
+Integer		3) int 整型		4个字节	（默认）
+Long		4) long 长整型		8个字节
+Float		5) float 单精度浮点数	4个字节 
+Double		6) double 双精度浮点数	8个字节	（默认）
+Character	7) char 字符型		2个字节
+Boolean		8) boolean 布尔型		1个字节 true/false（默认值）
+
+	计算机操作系统有一个指标：nbit，32bit，64bit
+	习惯上一般数字使用整型 int，一般小数（浮点数）double
+
+3）基本类型和包装类型区别？
+	a. 基本类型，所占空间小，性能高；包装类型，所占空间大，性能低
+	b. 基本类型不属于面向对象，本身就不是对象；包装类型它是属于引用类型，引用类型都是对象，所以包装类型是对象。
+	c. 基本类型变量都有默认值，包装类型没有默认值，没有进行初始化它的值就是null。null都是针对引用类型（对象）而言。基本类型是不能赋值null。
+
+	d. java是面向对象语言，严格来讲基本类型不属于面向对象概念。
+		java为了速度快，所以有基本类型，基本类型和对象之间怎么转换呢？就推出包装类型，内部自动转换。
+
+		// i 包装类型，10整型 int；底层编译javac.java
+		Integer i = 10;
+		//最后底层生成代码
+		Integer a = new Integer(10);
+
+
+4）表达一组值：数组
+	不论基本类型，还是包装类型，都是表示一个值。
+	数组就可以表示一堆值
+	
+	int[] arr = new int[n];	n是一个整数，不带初始化的，还需要自己去进行赋值
+	int[] arr = {10,20,30};	以大括号进行声明数组时就进行初始化，代码更加简洁
+	
+	double[] arr1 = {1.1,1.2,3.5 };
+
+5）对象Object
+	数组可以表示多个值，但是每个元素类型必须一致
+	生活中万物都可以在java中抽象成对象结构
+
+	问题：类和对象有什么差异？
+	Student stuChen = new Student();
+	Student stuWang = new Student();
+
+	1）类是蓝图（图纸），把生活中的事物的高度抽象。不是一个成品，不是具体事物。
+		Student是类
+	2）对象就是大厦，具体实物。也就是一个成品
+		stu、stuChen、stuWang都是一个一个的成品
+	3）类只能是一个Student、Teachter；对象可以多个，chen、wang。。。
+	4）对象怎么来的？ new关键字，标准写法 new Object();
+		java在运行时，解析代码遇到
+		Student stu = new Student();
+		遇到new的关键字，会给Student在内存中分配内存空间。
+		在java代码中调用这个对象，这个对象必须先创建对象，分配它的内存空间。
+
+6）Cat 小猫。对象有什么呢？
+	a. 属性（成员变量）
+	b. 行为（方法）
+
+package cn.tedu.pojo;
+
+import java.util.Date;	//日期必须使用util包下的
+
+//一个对象
+public class Cat {
+	//1. 属性（成员变量）
+	private String name;
+	private Date birthday;
+	private String color;
+	
+	//2. 行为（方法）
+	public void eat() {
+		System.out.println("我是小猫，我喜欢吃小鱼");
+	}
+	
+	public void run() {
+		System.out.println("我是小猫，我活蹦乱跳");
+	}
+	
+	public static void main(String[] args) {
+		//好的习惯：对象是类的首字母小写
+		Cat cat = new Cat();		//默认构造方法
+		cat.eat();
+		cat.run();
+	}
+}
+
+
+今日任务：
+1、流程控制
+	编程也是来源生活，生活高度抽象，
+	举例：高考，独木桥。上清华大学700分录取，小于700分不录取
+
+	一般程序都是顺序执行，
+	判断结构：分支执行。有些代码执行，有些代码不执行
+	循环结构：反复出现，反复执行，某段代码（多行）反复执行。
+		周一，周二，周三，周五，周六上课，周四自习，周日休息
+
+流程控制就三种：
+1）顺序结构：
+2）分支结构：if语句（if、if-else、if-else if-else if-else）、switch语句（swith case default）
+3）循环结构：3种，for、while、do-while
+
+2、if语句，分支判断
+	需求：是否下雨
+		如果下雨了，收衣服
+		如果天晴，晒被子
+
+	分支语句，if-else，两个分支，要么。。。要么。。。，它们条件是互斥，没有交叉
+
+package cn.tedu.pojo;
+
+public class TestIf {
+	public static void main(String[] args) {
+		//下雨，习惯是否表达用布尔类型，英文单词用is作为前缀，小写
+		boolean isRainning = false;		
+		if( isRainning ) {		//小括号里是一个条件表达式，结果只能true/false
+			//条件成立，就执行这里的代码
+			System.out.println("下雨喽，收衣服喽");
+		}else {
+			//条件不成立，就执行这里的代码
+			System.out.println("天晴，晒被子");
+		}
+		
+		if( isRainning ) {
+			System.out.println("下雨了");
+			System.out.println("收衣服");
+		}
+		
+		if( isRainning) System.out.println("下雨了"); 
+		System.out.println("收衣服");
+	}
+}
+
+package cn.tedu.pojo;
+
+public class TestIf {
+	public static void main(String[] args) {
+		//多分支，分支条件互斥，不可能交叉，不可能重复
+		//需求：一组分数，判断等级， 
+		//小于60 不及格，60~70及格，70~80一般，80~90良好，90~100优秀
+		
+		int score = 100;
+//		if( score>=60) {
+//			System.out.println("及格");
+//		}else {
+//			System.out.println("不及格");
+//		}
+		
+		//一个条件成立，其他的条件就不判断了
+		if( score>=90 ) {
+			System.out.println("优秀");
+		}else if( score>=80) {
+			System.out.println("良好");
+		}else if( score>=70) {
+			System.out.println("一般");
+		}else if( score>=60) {
+			System.out.println("及格");
+		}else {
+			System.out.println("不及格");
+		}
+		
+	}
+}
+
+
+3、switch语句，多分支，注意：执行结构和if-else if结构执行方式不同
+	语句是有它的特点，java开发者定义，我们必须去熟知它的特点，
+	这样在开发中才能根据需求，选定合适方式，
+
+	if是判断某个分支成立，其他分支就不判断了；
+	switch底层实现有特点，条件不成立就往下，但是某一个条件成立，后面的就不判断了，直接的执行！！！
+
+	注意：if语句和生活中理解是一致的，但是switch默认的情况下和我们日常生活的理解是不同，必须死记！
+
+package cn.tedu.pojo;
+
+//多分支
+public class TestSwitch {
+	public static void main(String[] args) {
+		//需求：电话号码
+		int phone = 120;
+		
+		if( phone==110) {
+			System.out.println("我是警察");
+		}else if(phone == 120) {
+			System.out.println("我是医生");
+		}else if(phone == 119) {
+			System.out.println("我是火警");
+		}else {
+			System.out.println("电话号码非法");
+		}
+		
+		System.out.println();
+		
+		switch( phone ) {
+		case 110 :
+			System.out.println("我是警察");
+			break;		//跳出switch语句，结束
+		case 120 :
+			System.out.println("我是医生");
+			break;
+		case 119 :
+			System.out.println("我是火警");
+			break;
+		default :
+			System.out.println("电话号码非法");
+			break;		//加不加都可以，习惯写上
+		}
+		
+	}
+}
+
+
+
+
+
+package cn.tedu.pojo;
+
+public class TestSwitchScore {
+	public static void main(String[] args) {
+		//switch()里面的参数值不能是一个范围，是一个具体值（int,String)
+		//switch语句非常死板，开发中用if-else if替代
+		
+		//需求：一组分数，判断等级， 
+		//小于60 不及格，60~70及格，70~80一般，80~90良好，90~100优秀
+		int score = 34;
+		
+		//System.out.println( score/10 );		//技巧：利用整除方式
+		switch( score/10 ) {
+		case 10 :
+			System.out.println("优秀");
+			break;
+		case 9 :
+			System.out.println("优秀");
+			break;
+		case 8 :
+			System.out.println("良好");
+			break;
+		case 7 :
+			System.out.println("一般");
+			break;
+		case 6 :
+			System.out.println("及格");
+			break;
+		default :
+			System.out.println("不及格");
+		}
+	}
+}
+
+小结：
+1）开发中有三种程序执行结构 
+	a. 顺序执行
+	b. 分支判断，部分代码执行，部分代码不执行
+	c. 循环结构，反复循环一段代码
+2）分支判断
+	a. if（用的多）
+		1）if
+		2）if-else
+		3）if- else if- else if-else
+	b. switch（java语言提供switch很弱，1.7才支持String）（非常少的使用）
+
+	if-else if方式完全替代掉switch
+
+
+
+
+
+
+
+		
+
